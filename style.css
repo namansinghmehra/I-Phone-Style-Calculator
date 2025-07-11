@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.calculator {
+    background-color: black;
+    padding: 20px;
+    border-radius: 30px;
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
+    width: 320px;
+}
+
+#display {
+    height: 100%;
+    width: 100%;
+    font-size: 40px;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    /* background-color: #fff; */
+}
+
+.button {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+button {
+    height: 70px;
+    font-size: 26px;
+    border: none;
+    border-radius: 50%;
+    /* background-color: #444; */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* button:hover {
+    background-color: #666;
+} */
+
+button:active{
+    opacity: 0.8;
+}
+
+.function{
+    background-color: #a5a5a5;
+    color: black;
+}
+
+.operator{
+    background-color: #ff9500;
+}
+
+.zero{
+    grid-column: span 2;
+    border-radius: 40px;
+    text-align: left;
+    padding-left: 28px;
+    background-color: #333;
+}
+
+button:not(.function):not(.operator):not(.zero){
+    background-color: #333;
+}
+
+/* Fade-in for display value */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Bounce button click */
+@keyframes press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Slide calculator in from bottom */
+@keyframes slideInUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Apply to calculator container */
+.calculator {
+  animation: slideInUp 0.5s ease;
+}
+
+/* Apply to buttons */
+button {
+  animation: press 0.2s ease;
+}
+
+/* Button click effect */
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+/* When value updates */
+#display.fade {
+  animation: fadeIn 0.2s ease;
+}
