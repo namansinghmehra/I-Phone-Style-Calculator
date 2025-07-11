@@ -27,8 +27,6 @@ To run the calculator on your own system:
 
 bash
 Copy code
-git clone https://github.com/your-username/iphone-calculator.git
-cd iphone-calculator
 Then just open index.html in your browser.
 
 📁 Project Structure
